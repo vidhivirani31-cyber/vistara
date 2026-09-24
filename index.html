@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VISTARA | Women's Fashion</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24151d;
+            background: #faf6f1;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 246, 241, 0.96);
+            z-index: 1000;
+            border-bottom: 1px solid #eaded8;
+        }
+
+        nav {
+            max-width: 1200px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            letter-spacing: 5px;
+            color: #4b1830;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #24151d;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8a2948;
+        }
+
+        .menu {
+            display: none;
+            font-size: 25px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 8% 70px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(250, 246, 241, 0.98),
+                    rgba(250, 246, 241, 0.72),
+                    rgba(250, 246, 241, 0.15)),
+                url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .small-title {
+            color: #8a2948;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(60px, 8vw, 105px);
+            line-height: 0.95;
+            color: #4b1830;
+        }
+
+        .hero h1 span {
+            color: #b58a54;
+            font-style: italic;
+        }
+
+        .hero p {
+            margin: 30px 0;
+            max-width: 500px;
+            color: #6d6265;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            margin-right: 10px;
+            text-decoration: none;
+            border: 1px solid #4b1830;
+            color: #4b1830;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn:hover,
+        .btn-primary {
+            background: #4b1830;
+            color: white;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .heading h2 {
+            font-family: Georgia, serif;
+            color: #4b1830;
+            font-size: 50px;
+        }
+
+        .heading p {
+            max-width: 550px;
+            margin: 15px auto;
+            color: #74696c;
+            line-height: 1.7;
+        }
+
+        /* CATEGORIES */
+
+        .categories {
+            background: white;
+        }
+
+        .category-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            height: 420px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .category:hover img {
+            transform: scale(1.06);
+        }
+
+        .category-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            color: white;
+
+            background: linear-gradient(transparent,
+                    rgba(30, 10, 20, 0.85));
+        }
+
+        .category-text h3 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+        }
+
+        /* COLLECTION */
+
+        .collection {
+            background: #faf6f1;
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+        }
+
+        .product img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-family: Georgia, serif;
+            color: #4b1830;
+            font-size: 21px;
+        }
+
+        .product-info p {
+            color: #756c6e;
+            margin-top: 6px;
+        }
+
+        .price {
+            color: #8a2948 !important;
+            font-weight: bold;
+            margin-top: 10px !important;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #4b1830;
+            color: white;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+
+        .about h2 {
+            font-family: Georgia, serif;
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            color: #e5dadd;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        /* VALUES */
+
+        .values {
+            background: white;
+        }
+
+        .value-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        .value {
+            padding: 30px;
+        }
+
+        .value-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .value h3 {
+            font-family: Georgia, serif;
+            color: #4b1830;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .value p {
+            color: #756c6e;
+            line-height: 1.7;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #eee3dd;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .contact-info h2 {
+            font-family: Georgia, serif;
+            font-size: 55px;
+            color: #4b1830;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #756c6e;
+            line-height: 1.8;
+        }
+
+        .details {
+            margin-top: 30px;
+        }
+
+        .details div {
+            margin: 20px 0;
+        }
+
+        .details strong {
+            display: block;
+            color: #4b1830;
+            margin-bottom: 5px;
+        }
+
+        form {
+            background: white;
+            padding: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #4b1830;
+            font-size: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+
+            border: 1px solid #ddd;
+            outline: none;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #8a2948;
+        }
+
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        form button {
+            padding: 15px 28px;
+            background: #4b1830;
+            color: white;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        form button:hover {
+            background: #8a2948;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #24151d;
+            color: white;
+            padding: 60px 7% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-logo {
+            font-family: Georgia, serif;
+            font-size: 35px;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #c9bdc1;
+            line-height: 1.7;
+        }
+
+        footer h4 {
+            color: #d8b277;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin: 10px 0;
+            color: #c9bdc1;
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 45px auto 0;
+            padding-top: 20px;
+
+            text-align: center;
+            border-top: 1px solid #493a40;
+
+            color: #9f9296;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+
+                background: #faf6f1;
+                padding: 25px;
+
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu {
+                display: block;
+                color: #4b1830;
+            }
+
+            .category-grid,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .hero {
+                padding: 120px 25px 60px;
+                background-position: 65% center;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .heading h2 {
+                font-size: 40px;
+            }
+
+            .category-grid,
+            .products,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                height: 400px;
+            }
+
+            .product img {
+                height: 430px;
+            }
+
+            .about img {
+                height: 400px;
+            }
+
+            .about h2,
+            .contact-info h2 {
+                font-size: 42px;
+            }
+
+            form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav>
+
+            <a href="#home" class="logo">VISTARA</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu" id="menuBtn">☰</button>
+
+        </nav>
+    </header>
+
+
+    <!-- HOME PAGE -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Women's Fashion Collection
+            </div>
+
+            <h1>
+                Style<br>
+                <span>Unfolded.</span>
+            </h1>
+
+            <p>
+                Discover contemporary fashion designed for girls
+                and women who express themselves with confidence,
+                elegance and individuality.
+            </p>
+
+            <a href="#collections" class="btn btn-primary">
+                SHOP COLLECTION
+            </a>
+
+            <a href="#about" class="btn">
+                OUR STORY
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="categories">
+
+        <div class="heading">
+
+            <div class="small-title">
+                Explore
+            </div>
+
+            <h2>Shop Your Style</h2>
+
+            <p>
+                From everyday essentials to statement occasionwear,
+                find a look made especially for you.
+            </p>
+
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category">
+
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>Dresses</h3>
+                    <p>Elegant everyday silhouettes</p>
+                </div>
+
+            </div>
+
+            <div class="category">
+
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>Ethnic Wear</h3>
+                    <p>Modern Indian elegance</p>
+                </div>
+
+            </div>
+
+            <div class="category">
+
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=80">
+
+                <div class="category-text">
+                    <h3>Partywear</h3>
+                    <p>Made for special moments</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION -->
+
+    <section class="collection" id="collections">
+
+        <div class="heading">
+
+            <div class="small-title">
+                New Arrivals
+            </div>
+
+            <h2>The Feminine Edit</h2>
+
+            <p>
+                A curated collection of contemporary pieces
+                designed to become your new favorites.
+            </p>
+
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80">
+
+                <div class="product-info">
+                    <h3>Ivory Grace Dress</h3>
+                    <p>Elegant midi dress</p>
+                    <p class="price">₹3,499</p>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80">
+
+                <div class="product-info">
+                    <h3>Rose Anarkali</h3>
+                    <p>Contemporary ethnic wear</p>
+                    <p class="price">₹4,299</p>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1566479179817-c0e5e0e0e1a8?auto=format&fit=crop&w=700&q=80">
+
+                <div class="product-info">
+                    <h3>Midnight Muse</h3>
+                    <p>Statement evening dress</p>
+                    <p class="price">₹5,499</p>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=700&q=80">
+
+                <div class="product-info">
+                    <h3>Blush Co-ord</h3>
+                    <p>Relaxed two-piece set</p>
+                    <p class="price">₹2,999</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <section class="about" id="about">
+
+        <div>
+
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85">
+
+        </div>
+
+        <div>
+
+            <div class="small-title">
+                Our Story
+            </div>
+
+            <h2>
+                Made for every version of her.
+            </h2>
+
+            <p>
+                Vistara is a contemporary women's fashion label
+                inspired by the beauty of Indian culture and
+                modern design.
+            </p>
+
+            <p>
+                We create clothing for girls and women who want
+                to feel confident, comfortable and beautifully
+                themselves.
+            </p>
+
+            <p>
+                From everyday dresses to festive silhouettes,
+                every Vistara piece is designed with intention.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY VISTARA -->
+
+    <section class="values">
+
+        <div class="heading">
+
+            <div class="small-title">
+                Why Vistara
+            </div>
+
+            <h2>Designed With Purpose</h2>
+
+        </div>
+
+        <div class="value-grid">
+
+            <div class="value">
+
+                <div class="value-icon">✦</div>
+
+                <h3>Elegant</h3>
+
+                <p>
+                    Timeless silhouettes designed to make
+                    you feel effortlessly beautiful.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-icon">♡</div>
+
+                <h3>For Her</h3>
+
+                <p>
+                    Fashion designed for different personalities,
+                    occasions and stages of life.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-icon">✧</div>
+
+                <h3>Unique</h3>
+
+                <p>
+                    Contemporary designs inspired by culture,
+                    creativity and individuality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <div class="small-title">
+                    Get In Touch
+                </div>
+
+                <h2>
+                    Let's talk fashion.
+                </h2>
+
+                <p>
+                    Have a question about our collection,
+                    sizing, custom designs or an order?
+                    We'd love to hear from you.
+                </p>
+
+                <div class="details">
+
+                    <div>
+                        <strong>Email</strong>
+                        hello@vistara-fashion.com
+                    </div>
+
+                    <div>
+                        <strong>Phone</strong>
+                        +91 XXXXX XXXXX
+                    </div>
+
+                    <div>
+                        <strong>Studio</strong>
+                        Surat, Gujarat, India
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form id="contactForm">
+
+                <div class="form-group">
+
+                    <label>Name</label>
+
+                    <input type="text" placeholder="Your name" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input type="email" placeholder="Your email" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Subject</label>
+
+                    <input type="text" placeholder="Subject">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Message</label>
+
+                    <textarea placeholder="Write your message..." required></textarea>
+
+                </div>
+
+
+                <button type="submit">
+                    SEND MESSAGE
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-logo">
+                    VISTARA
+                </div>
+
+                <p>
+                    Contemporary fashion for girls and women.
+                    Designed to help you express your own story.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#collections">Collections</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About Us</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Follow Us</h4>
+
+                <ul>
+                    <li>Instagram</li>
+                    <li>Pinterest</li>
+                    <li>Facebook</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 VISTARA Fashion. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for contacting VISTARA! We will get back to you soon."
+            );
+
+            this.reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
